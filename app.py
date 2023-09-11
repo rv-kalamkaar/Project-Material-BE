@@ -32,6 +32,7 @@ if (selected=="Diabetes Prediction System"):
     Pregnancy = st.text_input('No of pregnancies')
     Glucose = st.text_input('Glucose Level')
     abc = st.file_uploader('upload data', accept_multiple_files=True, type=['png','jpeg'])
+    Temperature = st.text_input("Temperature")
 
 # Heart Disease Prediction Rate
 if (selected=="Heart Disease Prediction System"):

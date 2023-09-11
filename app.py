@@ -8,4 +8,4 @@ diabetes_model = pkl.load(open("D:/Rohan Vikramaditya/Project Material BE/diabet
 
 heart_disease_model = pkl.load(open("D:/Rohan Vikramaditya/Project Material BE/heart_disease_model.sav"))
 
-parkinsons_model = pkl.load(open("D:/Rohan Vikramaditya/Project Material BE/parkinsons_model.sav"))
+parkinsons_model = pkl.load(open("D:/Rohan Vikramaditya/Project Material BE\parkinsons_model.sav"))

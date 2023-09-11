@@ -29,6 +29,10 @@ if (selected=="Diabetes Prediction System"):
     #page title
     st.title('Diabetes Prediction System')
 
+    Pregnancy = st.text_input('No of pregnancies')
+    Glucose = st.text_input('Glucose Level')
+    abc = st.file_uploader('upload data', accept_multiple_files=True, type=['png','jpeg'])
+
 if (selected=="Heart Disease Prediction System"):
 
     #page title

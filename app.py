@@ -33,11 +33,13 @@ if (selected=="Diabetes Prediction System"):
     Glucose = st.text_input('Glucose Level')
     abc = st.file_uploader('upload data', accept_multiple_files=True, type=['png','jpeg'])
 
+# Heart Disease Prediction Rate
 if (selected=="Heart Disease Prediction System"):
 
     #page title
     st.title('Heart Disease Prediction System')
 
+# Parkinsons Disease Prediction Rate
 if (selected=="Parkinsons Disease Prediction System"):
 
     #page title

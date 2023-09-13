@@ -35,13 +35,13 @@ if (selected == "Diabetes Prediction System"):
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        Pregnancies = float(st.number_input('No of pregnancies'))
+        Pregnancies = st.number_input('No of pregnancies', format= '%i', step=1)
 
     with col2:
-        Glucose = int(st.number_input('Glucose Level'))
+        Glucose = st.number_input('Glucose Level',format='%i', step=1)
 
     with col3:
-        BloodPressure = int(st.number_input('Blood Pressure value'))
+        BloodPressure = st.number_input('Blood Pressure value', format = '%i', step=1)
 
     with col1:
         Skinthickness = st.text_input('Skin Thickness value')

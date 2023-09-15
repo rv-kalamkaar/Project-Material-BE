@@ -10,6 +10,8 @@ heart_disease_model = pkl.load(open('heart_disease_model.sav', 'rb'))
 
 parkinsons_model = pkl.load(open('parkinsons_model.sav', 'rb'))
 
+breast_model = pkl.load(open('breast_cancer_model.sav', 'rb'))
+
 
 # sidebar for nav
 
@@ -18,8 +20,9 @@ with st.sidebar:
     selected = option_menu("Health-Guard: Machine learning driven – disease prediction and personalized recommendation system",
                            ['Diabetes Prediction System',
                             'Heart Disease Prediction System',
-                            'Parkinsons Disease Prediction System'],
-                            icons =['activity','heart','person'],
+                            'Parkinsons Disease Prediction System',
+                            'Breast Cancer Prediction System'],
+                            icons =['activity','heart','person','gender-female'],
                             default_index=0)
     
 
@@ -294,3 +297,112 @@ if (selected == 'Parkinsons Disease Prediction System'):
     st.success(parkinsons_diagnosis)    
 
     
+
+#*****************************************BREAST CANCER SECTION********************************************
+
+# Breast Cancer Prediction Page
+if selected == 'Breast Cancer Prediction System':
+    # Page title
+    st.title('Breast Cancer Prediction System')
+
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        mean_radius = st.text_input('Mean Radius')
+
+        mean_smoothness = st.text_input('Mean Smoothness')
+        
+        mean_symmetry = st.text_input('Mean Symmetry')
+
+        perimeter_error = st.text_input('Perimeter Error')
+
+    with col2:
+        mean_texture = st.text_input('Mean Texture')
+
+        mean_compactness = st.text_input('Mean Compactness')
+
+        mean_fractal_dimension = st.text_input('Mean Fractal Dimension')
+        
+        area_error = st.text_input('Area Error')
+
+    with col3:
+        mean_perimeter = st.text_input('Mean Perimeter')
+
+        mean_concavity = st.text_input('Mean Concavity')
+        
+        radius_error = st.text_input('Radius Error')    
+
+        smoothness_error = st.text_input('Smoothness Error')
+
+    with col4:
+        mean_area = st.text_input('Mean Area')
+
+        mean_concave_points = st.text_input('Mean Concave Points')
+        
+        texture_error = st.text_input('Texture Error')
+
+        compactness_error = st.text_input('Compactness Error')
+
+
+    with col1:
+        concavity_error = st.text_input('Concavity Error')
+        
+        worst_radius = st.text_input('Worst Radius')
+        
+        worst_smoothness = st.text_input('Worst Smoothness')
+        
+        worst_symmetry = st.text_input('Worst Symmetry')
+
+    with col2:        
+        concave_points_error = st.text_input('Concave Points Error')
+        
+        worst_texture = st.text_input('Worst Texture')
+        
+        worst_compactness = st.text_input('Worst Compactness')
+        
+        worst_fractal_dimension = st.text_input('Worst Fractal Dimension')
+
+    with col3:
+        symmetry_error = st.text_input('Symmetry Error')
+        
+        worst_perimeter = st.text_input('Worst Perimeter')
+        
+        worst_concavity = st.text_input('Worst Concavity')
+
+    with col4:
+        fractal_dimension_error = st.text_input('Fractal Dimension Error')
+        
+        worst_area = st.text_input('Worst Area')
+        
+        worst_concave_points = st.text_input('Worst Concave Points')
+
+        
+    # Code for prediction
+    cancer_diagnosis = ''
+    
+    # Creating a button for prediction
+    if st.button('Breast Cancer Test Result'):
+        if not all([mean_radius, mean_texture, mean_perimeter, mean_area, mean_smoothness, mean_compactness,
+                    mean_concavity, mean_concave_points, mean_symmetry, mean_fractal_dimension, radius_error,
+                    texture_error, perimeter_error, area_error, smoothness_error, compactness_error, concavity_error,
+                    concave_points_error, symmetry_error, fractal_dimension_error, worst_radius, worst_texture,
+                    worst_perimeter, worst_area, worst_smoothness, worst_compactness, worst_concavity,
+                    worst_concave_points, worst_symmetry, worst_fractal_dimension]):
+            st.warning("Please fill in all the fields.")
+        else:
+            cancer_prediction = breast_model.predict([[mean_radius, mean_texture, mean_perimeter, mean_area,
+                                                       mean_smoothness, mean_compactness, mean_concavity,
+                                                       mean_concave_points, mean_symmetry, mean_fractal_dimension,
+                                                       radius_error, texture_error, perimeter_error, area_error,
+                                                       smoothness_error, compactness_error, concavity_error,
+                                                       concave_points_error, symmetry_error, fractal_dimension_error,
+                                                       worst_radius, worst_texture, worst_perimeter, worst_area,
+                                                       worst_smoothness, worst_compactness, worst_concavity,
+                                                       worst_concave_points, worst_symmetry, worst_fractal_dimension]])
+            
+            if cancer_prediction[0] == 1:
+                cancer_diagnosis = 'The person is diagnosed with breast cancer.'
+            else:
+                cancer_diagnosis = 'The person is not diagnosed with breast cancer.'
+        
+    st.success(cancer_diagnosis)

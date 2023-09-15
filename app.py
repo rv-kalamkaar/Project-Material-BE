@@ -36,28 +36,28 @@ if (selected=="Diabetes Prediction System"):
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        Pregnancies = st.number_input('No of pregnancies')
+        Pregnancies = st.number_input('No of pregnancies', step=1)
 
     with col2:
-        Glucose = st.number_input('Glucose Level')
+        Glucose = st.number_input('Glucose Level',step=5)
 
     with col3:
-        BloodPressure = st.number_input('Blood Pressure value')
+        BloodPressure = st.number_input('Blood Pressure value',step=5)
 
     with col1:
-        Skinthickness = st.text_input('Skin Thickness value')
+        Skinthickness = st.number_input('Skin Thickness value',step=5)
 
     with col2:
-        Insulin = st.text_input('Insulin Level')
+        Insulin = st.number_input('Insulin Level',step=1)
 
     with col3:
-        bmi_index = st.text_input('BMI value')
+        bmi_index = st.number_input('BMI value', step = 5)
 
     with col1:
-        DiabetesPedigreeFunction = st.text_input("Diabetes Pedigree Function value")
+        DiabetesPedigreeFunction = st.number_input("Diabetes Pedigree Function value", step = 0.1)
 
     with col2:
-        Age = st.text_input("Age of a person")
+        Age = st.number_input("Age of a person",step = 1)
 
 
 
@@ -68,7 +68,8 @@ if (selected=="Diabetes Prediction System"):
     #creating a button for prediction
 
     if st.button('Diabetes Test Result'):
-        diab_prediction = diabetes_model.predict([['Pregnancies','Glucose','BloodPressure','Skinthickness','Insulin','BMI','DiabetesPedigreeFunction','Age']])
+        inputFeatures = [Pregnancies , Glucose, BloodPressure, Skinthickness ,Insulin , bmi_index ,DiabetesPedigreeFunction, Age]
+        diab_prediction = diabetes_model.predict([inputFeatures])
 
         if (diab_prediction[0]==1):
             diab_diagnosis = "The person is Diabetic"
@@ -94,43 +95,87 @@ if (selected=="Heart Disease Prediction System"):
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        age = st.text_input('Age of person')
+        age = st.number_input('Age', step=1)
 
     with col2:
-        sex = st.text_input('Sex of person [Male = 1 / Female = 0 ] ')
+        options1 = {
+            'Female' : 0,
+            'Male': 1
+        }
+        sex = st.selectbox("Gender",options=list(options1.values()))
 
     with col3:
-        cp = st.text_input('Chest Pain type')
+        options2 = {
+            'Angina' : 1,
+            'Asymptomatic' : 2,
+            'Abnormal' : 3,
+            'Severe' : 4
+        }
+        cp = st.selectbox('Chest Pain type/condition',options= list(options2.values()))
 
     with col1:
-        trestbps = st.text_input('Resting blood pressure')
+        trestbps = st.number_input('Resting blood pressure',step = 10)
 
     with col2:
-        chol = st.text_input('Cholestrol in mg/dl')
+        chol = st.number_input('Cholestrol in mg/dl', step = 10)
 
     with col3:
-        fbs = st.text_input('Fasting blood pressure')
+
+        options3 = {
+            'Yes' : 1,
+            'No' : 0
+        }
+        fbs = st.selectbox('Fasting blood pressure > 120 Mg/dl', options=list(options3.values()))
 
     with col1:
-         restecg = st.text_input("Resting electrographic result")
+
+        options4 = {
+            'Normal' : 0,
+            'Abnormal': 1,
+            'Hyper':2
+        }
+        restecg = st.selectbox("Resting electrographic result",options=list(options4.values()))
 
     with col2:
-        talach = st.text_input("Maximum heart rate achieved")
+        thalach = st.number_input("Maximum heart rate achieved",step=5)
 
     with col3:
-        exang = st.text_input("Exercise induced angina")
+        options5 = {
+            'Yes' : 1,
+            'No' : 0
+        }
+        exang = st.selectbox("Exercise induced angina",options=list(options5.values()))
 
     with col1:
-        oldpeak = st.text_input("ST depression induced by exercise relative to rest")
+        oldpeak = st.number_input("ST depression induced by exercise relative to rest", min_value = 0.0, step=0.1)
 
     with col2:
-        slope = st.text_input("Slope of the peak exercise ST segment")
+
+        options6 = {
+            'Up' : 1,
+            'Flat': 2,
+            'Down':3
+        }
+        slope = st.selectbox("Slope of the peak exercise ST segment",options=list(options6.values()))
 
     with col3:
-        ca = st.text_input("Number of major vessels (0-3) colored by flourosopy")
+
+        options7 = {
+            'None' : 0,
+            'One' : 1,
+            'Two' : 2,
+            'Three' : 3
+        }
+        ca = st.selectbox("Number of major vessels (0-3) colored by flourosopy", options=list(options7.values()))
 
     with col1:
-        thal = st.text_input("Thal: 0 = normal; 1 = fixed defect; 2 = reversable defect")
+
+        options8 = {
+            'Normal' : 0,
+            'Fixed Defect': 1,
+            'Reversable Defect':2
+        }
+        thal = st.selectbox("Thal",options=list(options8.values()))
 
 
 
@@ -139,10 +184,12 @@ if (selected=="Heart Disease Prediction System"):
 
     #creating a button for prediction
 
-    if st.button('Diabetes Test Result'):
-        heart_prediction = heart_disease_model.predict([['Pregnancies','Glucose','BloodPressure','Skinthickness','Insulin','BMI','DiabetesPedigreeFunction','Age']])
+    if st.button('Heart Test Result'):
+        inputFeatures2 = [age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]
+        print(inputFeatures2)
+        heart_prediction = heart_disease_model.predict([inputFeatures2])
 
-        if (diab_prediction[0]==1):
+        if (heart_prediction[0]==1):
             heart_diagnosis = "The person is Diabetic"
         else:
             heart_diagnosis = "The person is not Diabetic"

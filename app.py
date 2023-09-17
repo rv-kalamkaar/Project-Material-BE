@@ -12,6 +12,7 @@ parkinsons_model = pkl.load(open('parkinsons_model.sav', 'rb'))
 
 breast_model = pkl.load(open('breast_cancer_model.sav', 'rb'))
 
+lung_cancer_model = pkl.load(open('lung_cancer_model.sav', 'rb'))
 
 # sidebar for nav
 
@@ -21,8 +22,9 @@ with st.sidebar:
                            ['Diabetes Prediction System',
                             'Heart Disease Prediction System',
                             'Parkinsons Disease Prediction System',
-                            'Breast Cancer Prediction System'],
-                            icons =['activity','heart','person','gender-female'],
+                            'Breast Cancer Prediction System',
+                            'Lung Cancer Prediction System'],
+                            icons =['activity','heart','person','gender-female','lungs'],
                             default_index=0)
     
 
@@ -105,7 +107,7 @@ if (selected=="Heart Disease Prediction System"):
             'Female' : 0,
             'Male': 1
         }
-        sex = st.selectbox("Gender",options=list(options1.values()))
+        sex = st.selectbox("Gender [Male = 1 / Female = 0]",options=list(options1.values()))
 
     with col3:
         options2 = {
@@ -308,73 +310,73 @@ if selected == 'Breast Cancer Prediction System':
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        mean_radius = st.text_input('Mean Radius')
+        mean_radius = st.number_input('Mean Radius')
 
-        mean_smoothness = st.text_input('Mean Smoothness')
+        mean_smoothness = st.number_input('Mean Smoothness')
         
-        mean_symmetry = st.text_input('Mean Symmetry')
+        mean_symmetry = st.number_input('Mean Symmetry')
 
-        perimeter_error = st.text_input('Perimeter Error')
+        perimeter_error = st.number_input('Perimeter Error')
 
     with col2:
-        mean_texture = st.text_input('Mean Texture')
+        mean_texture = st.number_input('Mean Texture')
 
-        mean_compactness = st.text_input('Mean Compactness')
+        mean_compactness = st.number_input('Mean Compactness')
 
-        mean_fractal_dimension = st.text_input('Mean Fractal Dimension')
+        mean_fractal_dimension = st.number_input('Mean Fractal Dimension')
         
-        area_error = st.text_input('Area Error')
+        area_error = st.number_input('Area Error')
 
     with col3:
-        mean_perimeter = st.text_input('Mean Perimeter')
+        mean_perimeter = st.number_input('Mean Perimeter')
 
-        mean_concavity = st.text_input('Mean Concavity')
+        mean_concavity = st.number_input('Mean Concavity')
         
-        radius_error = st.text_input('Radius Error')    
+        radius_error = st.number_input('Radius Error')    
 
-        smoothness_error = st.text_input('Smoothness Error')
+        smoothness_error = st.number_input('Smoothness Error')
 
     with col4:
-        mean_area = st.text_input('Mean Area')
+        mean_area = st.number_input('Mean Area')
 
-        mean_concave_points = st.text_input('Mean Concave Points')
+        mean_concave_points = st.number_input('Mean Concave Points')
         
-        texture_error = st.text_input('Texture Error')
+        texture_error = st.number_input('Texture Error')
 
-        compactness_error = st.text_input('Compactness Error')
+        compactness_error = st.number_input('Compactness Error')
 
 
     with col1:
-        concavity_error = st.text_input('Concavity Error')
+        concavity_error = st.number_input('Concavity Error')
         
-        worst_radius = st.text_input('Worst Radius')
+        worst_radius = st.number_input('Worst Radius')
         
-        worst_smoothness = st.text_input('Worst Smoothness')
+        worst_smoothness = st.number_input('Worst Smoothness')
         
-        worst_symmetry = st.text_input('Worst Symmetry')
+        worst_symmetry = st.number_input('Worst Symmetry')
 
     with col2:        
-        concave_points_error = st.text_input('Concave Points Error')
+        concave_points_error = st.number_input('Concave Points Error')
         
-        worst_texture = st.text_input('Worst Texture')
+        worst_texture = st.number_input('Worst Texture')
         
-        worst_compactness = st.text_input('Worst Compactness')
+        worst_compactness = st.number_input('Worst Compactness')
         
-        worst_fractal_dimension = st.text_input('Worst Fractal Dimension')
+        worst_fractal_dimension = st.number_input('Worst Fractal Dimension')
 
     with col3:
-        symmetry_error = st.text_input('Symmetry Error')
+        symmetry_error = st.number_input('Symmetry Error')
         
-        worst_perimeter = st.text_input('Worst Perimeter')
+        worst_perimeter = st.number_input('Worst Perimeter')
         
-        worst_concavity = st.text_input('Worst Concavity')
+        worst_concavity = st.number_input('Worst Concavity')
 
     with col4:
-        fractal_dimension_error = st.text_input('Fractal Dimension Error')
+        fractal_dimension_error = st.number_input('Fractal Dimension Error')
         
-        worst_area = st.text_input('Worst Area')
+        worst_area = st.number_input('Worst Area')
         
-        worst_concave_points = st.text_input('Worst Concave Points')
+        worst_concave_points = st.number_input('Worst Concave Points')
 
         
     # Code for prediction

@@ -12,7 +12,13 @@ parkinsons_model = pkl.load(open('parkinsons_model.sav', 'rb'))
 
 breast_model = pkl.load(open('breast_cancer_model.sav', 'rb'))
 
-lung_cancer_model = pkl.load(open('lung_cancer_model.sav', 'rb'))
+lung_model = pkl.load(open('lung_cancer_model.sav', 'rb'))
+
+kidney_model = pkl.load(open('kidney.pkl', 'rb'))
+
+liver_model = pkl.load(open('liver.pkl', 'rb'))
+
+
 
 # sidebar for nav
 
@@ -23,8 +29,10 @@ with st.sidebar:
                             'Heart Disease Prediction System',
                             'Parkinsons Disease Prediction System',
                             'Breast Cancer Prediction System',
-                            'Lung Cancer Prediction System'],
-                            icons =['activity','heart','person','gender-female','lungs'],
+                            'Lung Cancer Prediction System',
+                            'Kidney Disease Prediction System',
+                            'Liver Disease Prediction System'],
+                            icons =['activity','heart','person','gender-female','lungs','person-fill','person'],
                             default_index=0)
     
 

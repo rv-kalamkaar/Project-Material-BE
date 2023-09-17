@@ -111,20 +111,18 @@ if (selected=="Heart Disease Prediction System"):
         age = st.number_input('Age', step=1)
 
     with col2:
-        options1 = {
-            'Female' : 0,
-            'Male': 1
-        }
-        sex = st.selectbox("Gender [Male = 1 / Female = 0]",options=list(options1.values()))
+
+        display_gen = ("Male", "Female")
+
+        options_gen = list(range(len(display_gen)))
+
+        sex = st.selectbox("Gender", options_gen, format_func=lambda x: display_gen[x])
 
     with col3:
-        options2 = {
-            'Angina' : 1,
-            'Asymptomatic' : 2,
-            'Abnormal' : 3,
-            'Severe' : 4
-        }
-        cp = st.selectbox('Chest Pain type/condition',options= list(options2.values()))
+
+        display2 = ("Angina", "Asymptomatic","Abnormal","Severe")
+        options2 = list(range(len(display2)))
+        cp = st.selectbox('Chest Pain type/condition', options2, format_func=lambda x: display2[x])
 
     with col1:
         trestbps = st.number_input('Resting blood pressure',step = 10)
@@ -134,61 +132,55 @@ if (selected=="Heart Disease Prediction System"):
 
     with col3:
 
-        options3 = {
-            'Yes' : 1,
-            'No' : 0
-        }
-        fbs = st.selectbox('Fasting blood pressure > 120 Mg/dl', options=list(options3.values()))
+
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+
+        fbs = st.selectbox('Fasting blood pressure > 120 Mg/dl', options_yes_no, format_func=lambda x: display_yes_no[x])
 
     with col1:
 
-        options4 = {
-            'Normal' : 0,
-            'Abnormal': 1,
-            'Hyper':2
-        }
-        restecg = st.selectbox("Resting electrographic result",options=list(options4.values()))
+        display4 = ('Normal','Abnormal', 'Hyper')
+
+        options4 = list(range(len(display4)))
+
+        restecg = st.selectbox("Resting electrographic result",options4, format_func=lambda x: display4[x])
 
     with col2:
         thalach = st.number_input("Maximum heart rate achieved",step=5)
 
     with col3:
-        options5 = {
-            'Yes' : 1,
-            'No' : 0
-        }
-        exang = st.selectbox("Exercise induced angina",options=list(options5.values()))
+
+        exang = st.selectbox("Exercise induced angina",options3, format_func=lambda x: display3[x])
 
     with col1:
         oldpeak = st.number_input("ST depression induced by exercise relative to rest", min_value = 0.0, step=0.1)
 
     with col2:
 
-        options6 = {
-            'Up' : 1,
-            'Flat': 2,
-            'Down':3
-        }
-        slope = st.selectbox("Slope of the peak exercise ST segment",options=list(options6.values()))
+        display6 = ('Up','Flat','Down')
+
+        options6 = list(range(len(display6)))
+
+        slope = st.selectbox("Slope of the peak exercise ST segment",options6, format_func=lambda x: display6[x])
 
     with col3:
 
-        options7 = {
-            'None' : 0,
-            'One' : 1,
-            'Two' : 2,
-            'Three' : 3
-        }
-        ca = st.selectbox("Number of major vessels (0-3) colored by flourosopy", options=list(options7.values()))
+        display7 = ('None','One','Two','Three')
+
+        options7 = list(range(len(display7)))
+
+        ca = st.selectbox("Number of major vessels (0-3) colored by flourosopy",options7, format_func=lambda x: display7[x])
 
     with col1:
 
-        options8 = {
-            'Normal' : 0,
-            'Fixed Defect': 1,
-            'Reversable Defect':2
-        }
-        thal = st.selectbox("Thal",options=list(options8.values()))
+        display8 = ('Normal','Fixed Defect','Reversable Defect')
+
+        options8 = list(range(len(display8)))
+
+        thal = st.selectbox("Thal",options8, format_func=lambda x: display8[x])
+
 
 
 
@@ -416,3 +408,120 @@ if selected == 'Breast Cancer Prediction System':
                 cancer_diagnosis = 'The person is not diagnosed with breast cancer.'
         
     st.success(cancer_diagnosis)
+
+#*****************************************DIABETES SECTION********************************************
+
+if (selected=="Lung Cancer Prediction System"):
+
+    #page title
+    st.title('Lung Cancer Prediction System')
+
+    #getting input data from the user
+    #Columns for input fields
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    
+    display_gen = ("Male", "Female")
+
+    options_gen = list(range(len(display_gen)))
+    
+
+
+
+    with col1:
+        gender = st.selectbox("Gender", options_gen, format_func=lambda x: display_gen[x])
+
+    with col2:
+        age = st.number_input('Age',step=5)
+
+    with col3:
+
+        display_yes_no = ("Yes", "No")
+        options_yes_no = list(range(len(display_yes_no)))
+
+        smoking = st.selectbox("Do the person smoke?", options_yes_no, format_func=lambda x: display_yes_no[x])
+
+    with col4:
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+        yellow_fingers = st.selectbox("Does the person have yellow fingers?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col1:
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+        anxiety = st.selectbox("Does the person have Anxiety issues?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col2:        
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+        peer_pressure = st.selectbox("Does the person have Peer Pressure problems?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col3:
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+        chr_disease = st.selectbox("Does the person have any chronic disease?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col4:
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+        fatigue = st.selectbox("Does the person get fatigue easily?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col1:
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+
+
+        allergy = st.selectbox("Does the person have any allergies?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col2:
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+        wheezing = st.selectbox("Does the person have wheezing problem?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col3:
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+        alcohol_consumption = st.selectbox("Does the person consume alcohol?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col4:
+        display_yes_no = ("Yes", "No")
+
+        options_yes_no = list(range(len(display_yes_no)))
+        coughing = st.selectbox("Does the person have coughing?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col1:
+        shortness_of_breath = st.selectbox("Does the person have shortness in breathing?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col2:
+        swallowing_difficulty = st.selectbox("Does the person have yellow fingers?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+    with col3:
+        chest_pain = st.selectbox("Does the person have chest pain?",options_yes_no,format_func=lambda x: display_yes_no[x])
+
+
+
+
+    #code for prediction
+    diab_diagnosis = ' '
+
+    #creating a button for prediction
+
+    if st.button('Diabetes Test Result'):
+        inputFeatures = [Pregnancies , Glucose, BloodPressure, Skinthickness ,Insulin , bmi_index ,DiabetesPedigreeFunction, Age]
+        diab_prediction = diabetes_model.predict([inputFeatures])
+
+        if (diab_prediction[0]==1):
+            diab_diagnosis = "The person is Diabetic"
+        else:
+            diab_diagnosis = "The person is not Diabetic"
+
+    st.success(diab_diagnosis)

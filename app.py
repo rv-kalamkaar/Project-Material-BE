@@ -152,7 +152,7 @@ if (selected=="Heart Disease Prediction System"):
 
     with col3:
 
-        exang = st.selectbox("Exercise induced angina",options3, format_func=lambda x: display3[x])
+        exang = st.selectbox("Exercise induced angina",options_yes_no, format_func=lambda x: display_yes_no[x])
 
     with col1:
         oldpeak = st.number_input("ST depression induced by exercise relative to rest", min_value = 0.0, step=0.1)

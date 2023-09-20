@@ -14,7 +14,7 @@ breast_model = pkl.load(open('breast_cancer_model.sav', 'rb'))
 
 lung_model = pkl.load(open('lung_cancer_model.sav', 'rb'))
 
-kidney_model = pkl.load(open('kidney.pkl', 'rb'))
+kidney_model = pkl.load(open('kidney_ckd_disease.sav', 'rb'))
 
 liver_model = pkl.load(open('liver.pkl', 'rb'))
 
@@ -30,7 +30,7 @@ with st.sidebar:
                             'Parkinsons Disease Prediction System',
                             'Breast Cancer Prediction System',
                             'Lung Cancer Prediction System',
-                            'Kidney Disease Prediction System',
+                            'Chronic Kidney Disease Prediction System',
                             'Liver Disease Prediction System'],
                             icons =['activity','heart','person','gender-female','lungs','person-fill','person'],
                             default_index=0)
@@ -190,9 +190,9 @@ if (selected=="Heart Disease Prediction System"):
     #creating a button for prediction
 
     if st.button('Heart Test Result'):
-        inputFeatures2 = [age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]
-        print(inputFeatures2)
-        heart_prediction = heart_disease_model.predict([inputFeatures2])
+        inputFeatures = [age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]
+        print(inputFeatures)
+        heart_prediction = heart_disease_model.predict([inputFeatures])
 
         if (heart_prediction[0]==1):
             heart_diagnosis = "The person is affected by heart disease"
@@ -487,10 +487,132 @@ if (selected=="Lung Cancer Prediction System"):
         lung_prediction = lung_model.predict([inputFeatures])
 
         if (lung_prediction[0]==1):
-            lung_diagnosis = "The person is Diabetic"
+            lung_diagnosis = "The person is having Lung Cancer"
         else:
-            lung_diagnosis = "The person is not Diabetic"
+            lung_diagnosis = "The person is not having Lung Cancer"
 
     st.success(lung_diagnosis)
+if (selected=="Chronic Kidney Disease Prediction System"):
+    
+    #page title
+    st.title('Chronic Kidney Disease Prediction System')
+
+    #getting input data from the user
+    #Columns for input fields
+
+    col1, col2, col3, col4, col5,col6 = st.columns(6)
+
+
+    display_gen = ("Male", "Female")
+
+    options_gen = list(range(len(display_gen))) 
+
+    display_yes_no = ("Yes", "No")
+
+    options_yes_no = list(range(len(display_yes_no)))
+
+    display_normal_abnormal = ("Normal","Abnormal")
+
+    options_normal_abnormal = list(range(len(display_normal_abnormal))) 
+
+    display_present_notpresent = ("Present","Not Present") 
+
+    options_present_notpresent = list(range(len(display_present_notpresent)))
+    
+    display_good_bad = ("Good","Poor")
+    
+    options_good_bad = list(range(len(display_good_bad)))
+   
+    with col1:
+        age = st.number_input('Age', step=1)
+
+    with col2:
+        blood_pressure = st.number_input('Blood Pressure value',step=5)
+
+    with col3:
+        specific_gravity = st.number_input('Specific Gravity value',step=0.2)
+
+    with col4:
+        albumin = st.number_input('Albumin value',step=1.0)
+    
+    with col5:
+        sugar = st.number_input('Sugar value',step=1.0) 
+
+    with col6:
+        red_blood_cells = st.selectbox("What is the condition of Red blood cells?",options_normal_abnormal,format_func=lambda x: display_normal_abnormal[x],key=1)       
+
+    with col1:
+        pus_cell = st.selectbox("What is the condition of Pus Cells ?",options_normal_abnormal,format_func=lambda x: display_normal_abnormal[x],key=2)
+
+    with col2:
+        pus_cell_clumps = st.selectbox("Are Pus Cell Clumps present in the body?",options_present_notpresent,format_func=lambda x: display_present_notpresent[x],key=3)
+
+    with col3:
+        bacteria = st.selectbox("Is bacterial infection present in the body?",options_present_notpresent,format_func=lambda x: display_present_notpresent[x],key=4)
+
+    with col4:
+        blood_glucose_random = st.number_input('Blood Glucose random value',step=1.0)
+    
+    with col5:
+        blood_urea = st.number_input('Blood Urea value',step=1.0) 
+
+    with col6:
+        serum_creatinine = st.number_input('Serum Creatinine value',step=0.2) 
+    
+    with col1:
+        sodium = st.number_input('Sodium Value', step=1.0)
+
+    with col2:
+        potassium = st.number_input('Potassium value',step=1.0)
+
+    with col3:
+        haemoglobin = st.number_input('Haemoglobin value',step=1.0)
+
+    with col4:
+        packed_cell_volume = st.number_input('Packed Cell value',step=1.0)
+    
+    with col5:
+        white_blood_cell_count = st.number_input('White Blood Cell Count',step=10) 
+
+    with col6:
+        red_blood_cell_count = st.number_input('Red Blood Cell Count',step=10) 
+
+    with col1:
+        hypertension = st.selectbox("Is the person having Hypertension problems?",options_yes_no,format_func=lambda x: display_yes_no[x],key=16)
+
+    with col2:
+        diabetes_mellitus = st.selectbox("Is the person having Diabetes Mellitus problem?",options_yes_no,format_func=lambda x: display_yes_no[x],key=17)
+
+    with col3:
+        coronary_artery_disease = st.selectbox("Is the person having Coronary Artery Disease?",options_yes_no,format_func=lambda x: display_yes_no[x],key=18)
+
+    with col4:
+        appetite = st.selectbox("What is the apetite condition of the patient?",options_good_bad,format_func=lambda x: display_good_bad[x])
+    
+    with col5:
+        peda_edema = st.selectbox("Is the person having Pedal Edema?",options_yes_no,format_func=lambda x: display_yes_no[x],key=19)
+    
+    with col6:
+        anemia = st.selectbox("Is the person having Anemia?",options_yes_no,format_func=lambda x: display_yes_no[x],key=20)
+    
+
+
+
+    #code for prediction
+    kidney_diagnosis = ' '
+
+    #creating a button for prediction
+
+    if st.button('Chronic Kidney Disease Test Result'):
+        inputFeatures = [age,blood_pressure,specific_gravity,albumin,sugar,red_blood_cells,pus_cell,pus_cell_clumps,bacteria,blood_glucose_random,blood_urea,serum_creatinine,sodium,potassium,haemoglobin,packed_cell_volume,white_blood_cell_count,red_blood_cell_count,hypertension,diabetes_mellitus,coronary_artery_disease,appetite,peda_edema,anemia]
+        kidney_prediction = kidney_model.predict([inputFeatures])
+
+        if (kidney_prediction[0]==1):
+            kidney_diagnosis = "The person is having Chronic Kidney Disease"
+        else:
+            kidney_diagnosis = "The person is not having Chronic Kidney Disease"
+
+    st.success(kidney_diagnosis)
+
 
 

@@ -489,8 +489,10 @@ if (selected=="Lung Cancer Prediction System"):
         lung_prediction = lung_model.predict([inputFeatures])
 
         if (lung_prediction[0]==1):
-            lung_diagnosis = "The person is Diabetic"
+            lung_diagnosis = "The person is having Lung Cancer"
         else:
-            lung_diagnosis = "The person is not Diabetic"
+            lung_diagnosis = "The person is not having Lung Cancer"
 
     st.success(lung_diagnosis)
+
+

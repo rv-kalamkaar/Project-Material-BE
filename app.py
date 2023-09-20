@@ -137,7 +137,7 @@ if (selected=="Heart Disease Prediction System"):
 
         options_yes_no = list(range(len(display_yes_no)))
 
-        fbs = st.selectbox('Fasting blood pressure > 120 Mg/dl', options_yes_no, format_func=lambda x: display_yes_no[x], key=1)
+        fbs = st.selectbox('Fasting blood pressure > 120 Mg/dl', options_yes_no, format_func=lambda x: display_yes_no[x])
 
     with col1:
 

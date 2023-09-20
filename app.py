@@ -16,7 +16,7 @@ lung_model = pkl.load(open('lung_cancer_model.sav', 'rb'))
 
 kidney_model = pkl.load(open('kidney_ckd_disease.sav', 'rb'))
 
-liver_model = pkl.load(open('liver.pkl', 'rb'))
+liver_model = pkl.load(open('liver_disease_model.sav', 'rb'))
 
 
 
@@ -492,6 +492,9 @@ if (selected=="Lung Cancer Prediction System"):
             lung_diagnosis = "The person is not having Lung Cancer"
 
     st.success(lung_diagnosis)
+
+#*****************************************CHRONIC KIDNEY DISEASE SECTION********************************************
+
 if (selected=="Chronic Kidney Disease Prediction System"):
     
     #page title
@@ -501,11 +504,6 @@ if (selected=="Chronic Kidney Disease Prediction System"):
     #Columns for input fields
 
     col1, col2, col3, col4, col5,col6 = st.columns(6)
-
-
-    display_gen = ("Male", "Female")
-
-    options_gen = list(range(len(display_gen))) 
 
     display_yes_no = ("Yes", "No")
 
@@ -613,6 +611,69 @@ if (selected=="Chronic Kidney Disease Prediction System"):
             kidney_diagnosis = "The person is not having Chronic Kidney Disease"
 
     st.success(kidney_diagnosis)
+
+#*****************************************LIVER DISEASE SECTION********************************************
+
+
+if (selected=="Liver Disease Prediction System"):
+
+    #page title
+    st.title('Liver Disease Prediction System')
+
+    #getting input data from the user
+    #Columns for input fields
+
+    col1, col2, col3 = st.columns(3)
+
+    display_gen = ("Male", "Female")
+
+    options_gen = list(range(len(display_gen)))
+
+    with col1:
+        Age = st.number_input("Age of a person",step = 1)
+        
+    with col2:
+        Gender = st.selectbox("Gender", options_gen, format_func=lambda x: display_gen[x], key=2)
+
+    with col3:
+        Total_Bilirubin = st.number_input('Total Bilirubin value',step=0.5)
+
+    with col1:
+        Direct_Bilirubin = st.number_input('Direct/Conjugated Bilirubin value',step=0.5)
+
+    with col2:
+        Alkaline_Phosphotase = st.number_input('Alkaline Phosphotase value',step=10)
+
+    with col3:
+        Alamine_Aminotransferase = st.number_input('Alanine Aminotransferase value', step = 5)
+
+    with col1:
+        Aspartate_Aminotransferase = st.number_input("Aspartate Aminotransferase value", step = 5)
+
+    with col2:
+        Total_Protiens = st.number_input("Total Protiens present",step = 1.0)
+    
+    with col3:
+        Albumin = st.number_input("Albumin value",step = 1.0)
+    
+    with col1:
+        Albumin_and_Globulin_Ratio = st.number_input("Albumin and Globulin Ratio",step = 0.1)
+
+    #code for prediction
+    liver_diagnosis = ' '
+
+    #creating a button for prediction
+
+    if st.button('Liver Disease Test Result'):
+        inputFeatures = [Age,Gender,Total_Bilirubin,Direct_Bilirubin,Alkaline_Phosphotase,Alamine_Aminotransferase,Aspartate_Aminotransferase,Total_Protiens,Albumin,Albumin_and_Globulin_Ratio]
+        liver_prediction = liver_model.predict([inputFeatures])
+
+        if (liver_prediction[0]==1):
+            liver_diagnosis = "The person is having Liver Disease"
+        else:
+            liver_diagnosis = "The person is not having Liver Disease"
+
+    st.success(liver_diagnosis)
 
 
 

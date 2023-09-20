@@ -430,49 +430,47 @@ if (selected=="Lung Cancer Prediction System"):
 
     options_yes_no = list(range(len(display_yes_no)))   
     
+   
     with col1:
         gender = st.selectbox("Gender", options_gen, format_func=lambda x: display_gen[x], key=2)
 
     with col2:
-        age = st.number_input('Age',step=5)
-
-    with col3:
         smoking = st.selectbox("Do the person smoke?", options_yes_no, format_func=lambda x: display_yes_no[x],key=3)
 
-    with col4:
+    with col3:
         yellow_fingers = st.selectbox("Does the person have yellow fingers?",options_yes_no,format_func=lambda x: display_yes_no[x],key=4)
 
-    with col1:
+    with col4:
         anxiety = st.selectbox("Does the person have Anxiety issues?",options_yes_no,format_func=lambda x: display_yes_no[x],key=5)
 
-    with col2:        
+    with col1:        
         peer_pressure = st.selectbox("Does the person have Peer Pressure problems?",options_yes_no,format_func=lambda x: display_yes_no[x],key=6)
 
-    with col3:
+    with col2:
         chr_disease = st.selectbox("Does the person have any chronic disease?",options_yes_no,format_func=lambda x: display_yes_no[x],key=7)
 
-    with col4:
+    with col3:
         fatigue = st.selectbox("Does the person get fatigue easily?",options_yes_no,format_func=lambda x: display_yes_no[x],key=8)
 
-    with col1:
+    with col4:
         allergy = st.selectbox("Does the person have any allergies?",options_yes_no,format_func=lambda x: display_yes_no[x],key=9)
 
-    with col2:
+    with col1:
         wheezing = st.selectbox("Does the person have wheezing problem?",options_yes_no,format_func=lambda x: display_yes_no[x],key=10)
 
-    with col3:
+    with col2:
         alcohol_consumption = st.selectbox("Does the person consume alcohol?",options_yes_no,format_func=lambda x: display_yes_no[x],key=11)
 
-    with col4:
+    with col3:
         coughing = st.selectbox("Does the person have coughing?",options_yes_no,format_func=lambda x: display_yes_no[x],key=12)
 
-    with col1:
+    with col4:
         shortness_of_breath = st.selectbox("Does the person have shortness in breathing?",options_yes_no,format_func=lambda x: display_yes_no[x],key=13)
 
-    with col2:
+    with col1:
         swallowing_difficulty = st.selectbox("Does the person have yellow fingers?",options_yes_no,format_func=lambda x: display_yes_no[x],key=14)
 
-    with col3:
+    with col2:
         chest_pain = st.selectbox("Does the person have chest pain?",options_yes_no,format_func=lambda x: display_yes_no[x],key=15)
 
 
@@ -484,14 +482,14 @@ if (selected=="Lung Cancer Prediction System"):
     #creating a button for prediction
 
     if st.button('Lung Cancer Test Result'):
-        inputFeatures = [age , gender, smoking, yellow_fingers ,anxiety , peer_pressure,chr_disease, fatigue,allergy,wheezing,
+        inputFeatures = [gender, smoking, yellow_fingers ,anxiety , peer_pressure,chr_disease, fatigue,allergy,wheezing,
                          alcohol_consumption,coughing,shortness_of_breath,swallowing_difficulty,chest_pain]
         lung_prediction = lung_model.predict([inputFeatures])
 
         if (lung_prediction[0]==1):
-            lung_diagnosis = "The person is having Lung Cancer"
+            lung_diagnosis = "The person is Diabetic"
         else:
-            lung_diagnosis = "The person is not having Lung Cancer"
+            lung_diagnosis = "The person is not Diabetic"
 
     st.success(lung_diagnosis)
 

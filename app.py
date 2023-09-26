@@ -1,6 +1,7 @@
 import streamlit as st
 from page1 import main as page1_main
 from page2 import main as page2_main
+from page3 import main as page3_main
 from streamlit_option_menu import option_menu
 import pickle as pkl
 
@@ -10,10 +11,12 @@ st.set_page_config(
 )
 
 st.sidebar.title("Health-Guard: Machine learning driven – disease prediction and personalized recommendation system")
-selected_page = st.sidebar.radio("Go to", ("Page for Doctors", "Page for Users"))
+selected_page = st.sidebar.radio("Go to", ("Introduction","Page for Doctors", "Page for Users"))
 
-if selected_page == "Page for Doctors":
+if selected_page == "Introduction":
     page1_main()
-elif selected_page == "Page for Users":
+elif selected_page == "Page for Doctors":
     page2_main()
+elif selected_page == "Page for Users":
+    page3_main()
 # importing pickle files

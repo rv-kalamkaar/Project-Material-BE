@@ -31,7 +31,8 @@ def main():
                                 'Liver Disease Prediction System'],
                                icons=['activity', 'heart', 'person',
                                       'gender-female', 'lungs', 'person-fill', 'person'],
-                               default_index=0 )
+                               default_index=0 
+                               )
 
 # *****************************************DIABETES SECTION********************************************
 
@@ -113,6 +114,8 @@ def main():
 
             sex = st.selectbox("Gender", options_gen,
                            format_func=lambda x: display_gen[x], key=1)
+            
+            
 
         with col3:
 

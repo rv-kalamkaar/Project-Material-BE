@@ -5,7 +5,7 @@ import pickle as pkl
 
 def main():
 
-    diabetes_model = pkl.load(open('diabetes disease_model.sav', 'rb'))
+    diabetes_model = pkl.load(open("D:\Rohan Vikramaditya\Project Material BE\diabetes_model.sav", 'rb'))
 
     heart_disease_model = pkl.load(open('heart_disease_model.sav', 'rb'))
 

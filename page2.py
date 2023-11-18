@@ -5,7 +5,7 @@ import pickle as pkl
 
 def main():
 
-    diabetes_model = pkl.load(open('diabetes_model.sav', 'rb'))
+    diabetes_model = pkl.load(open('diabetes disease_model.sav', 'rb'))
 
     heart_disease_model = pkl.load(open('heart_disease_model.sav', 'rb'))
 
@@ -79,7 +79,7 @@ def main():
         if st.button('Diabetes Test Result'):
             inputFeatures = [Pregnancies, Glucose, BloodPressure,
                          Skinthickness, Insulin, bmi_index, DiabetesPedigreeFunction, Age]
-            diab_prediction = diabetes_model.predict([inputFeatures])
+            diab_prediction = diabetes disease_model.predict([inputFeatures])
 
             if (diab_prediction[0] == 1):
                 diab_diagnosis = "The person is Diabetic"

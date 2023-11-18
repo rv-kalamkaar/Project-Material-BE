@@ -79,7 +79,7 @@ def main():
         if st.button('Diabetes Test Result'):
             inputFeatures = [Pregnancies, Glucose, BloodPressure,
                          Skinthickness, Insulin, bmi_index, DiabetesPedigreeFunction, Age]
-            diab_prediction = diabetes disease_model.predict([inputFeatures])
+            diab_prediction = diabetes_model.predict([inputFeatures])
 
             if (diab_prediction[0] == 1):
                 diab_diagnosis = "The person is Diabetic"

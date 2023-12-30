@@ -20,7 +20,7 @@ def get_device_location():
 def main():
     st.title("Multiple diseases prediction for users")
     with open(
-        r"D:\Rohan Vikramaditya\Project Material BE\pickle files\multiple_disease.sav",
+        r"C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\multiple_disease.sav",
         "rb",
     ) as file:
         loaded_model = pkl.load(file)
@@ -31,7 +31,7 @@ def main():
     device_location = get_device_location()
 
     # Read the CSV data into a Pandas DataFrame
-    df = pd.read_csv(r"C:\Users\rohan\Downloads\hospital_directory.csv")
+    df = pd.read_csv(r"C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\Data files\hospital_directory.csv")
 
     # Check if the DataFrame contains a column with comma-separated 'latitude,longitude'
     # Split the 'coordinates' column into separate 'latitude' and 'longitude' columns

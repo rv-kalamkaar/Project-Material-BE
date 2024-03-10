@@ -4,7 +4,7 @@ import pickle as pkl
 
 
 def main():
-    st.title("WELCOME TO HEALTH GAURD !! ")
+    st.title("WELCOME TO HEALTH GAURD: ML based Disease Prediction system !! ")
 
     st.write("Health Guard is a machine learning-based system designed for multiple disease prediction and recommendation.")
 

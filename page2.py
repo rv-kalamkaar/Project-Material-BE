@@ -5,19 +5,19 @@ import pickle as pkl
 
 def main():
 
-    diabetes_model = pkl.load(open("D:\Rohan Vikramaditya\Project Material BE\diabetes_model.sav", 'rb'))
+    diabetes_model = pkl.load(open(r"C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\diabetes disease_model.sav", 'rb'))
 
-    heart_disease_model = pkl.load(open('heart_disease_model.sav', 'rb'))
+    heart_disease_model = pkl.load(open(r'C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\heart_disease_model.sav', 'rb'))
 
-    parkinsons_model = pkl.load(open('parkinsons_model.sav', 'rb'))
+    parkinsons_model = pkl.load(open(r'C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\parkinsons_model.sav', 'rb'))
 
-    breast_model = pkl.load(open('breast_cancer_model.sav', 'rb'))
+    breast_model = pkl.load(open(r'C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\breast_cancer_model.sav', 'rb'))
 
-    lung_model = pkl.load(open('lung_cancer_model.sav', 'rb'))
+    lung_model = pkl.load(open(r'C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\lung_cancer_model.sav', 'rb'))
 
-    kidney_model = pkl.load(open('kidney_ckd_disease.sav', 'rb'))
+    kidney_model = pkl.load(open(r'C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\kidney_ckd_disease.sav', 'rb'))
 
-    liver_model = pkl.load(open('liver_disease_model.sav', 'rb'))
+    liver_model = pkl.load(open(r'C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\liver_disease_model.sav', 'rb'))
 
     with st.sidebar:
 

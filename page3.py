@@ -19,10 +19,7 @@ def get_device_location():
 
 def main():
     st.title("Multiple diseases prediction for users")
-    with open(
-        r"C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\multiple_disease.sav",
-        "rb",
-    ) as file:
+    with open(r"C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\pickle files\multiple_disease.sav","rb") as file:
         loaded_model = pkl.load(file)
 
     model = loaded_model["model"]
@@ -602,5 +599,5 @@ def main():
         st.plotly_chart(fig)
 
 
-if __name__ == "__main__":
+if __name__ == "_main_":
     main()

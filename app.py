@@ -8,7 +8,7 @@ st.set_page_config(
     page_icon= "heart"
 )
 
-st.sidebar.title("Health-Guard: Machine learning driven – disease prediction and personalized recommendation system")
+st.sidebar.title("Health-Guard")
 selected_page = st.sidebar.radio("Go to", ("Introduction","Page for Doctors", "Page for Users"))
 
 if selected_page == "Introduction":

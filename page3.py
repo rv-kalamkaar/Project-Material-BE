@@ -575,6 +575,5 @@ def main():
         # Display the map only if the "Show Map" button is clicked
         st.plotly_chart(fig)
 
-
 if __name__ == "_main_":
     main()

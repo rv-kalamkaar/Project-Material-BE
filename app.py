@@ -11,6 +11,7 @@ st.set_page_config(
 st.sidebar.title("Health-Guard {Precaution is always better than cure!!} \n WARNING !! ----> If Normal users ----> Go to 'Page for Users !!  Avoid going to Doctor's Page' ")
 selected_page = st.sidebar.radio("Go to", ("Introduction","Page for Doctors \n (For medical Staff only)", "Page for Users"))
 
+
 if selected_page == "Introduction":
     page1_main()
 elif selected_page == "Page for Doctors \n (For medical Staff only)":

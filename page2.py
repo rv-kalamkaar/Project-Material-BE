@@ -703,6 +703,5 @@ def main():
 
         st.success(liver_diagnosis)
 
-
 if __name__ == "__main__":
     main()

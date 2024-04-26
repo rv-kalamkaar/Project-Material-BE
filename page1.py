@@ -19,9 +19,9 @@ def main():
     st.write("- **Personalization**: Get personalized recommendations tailored to individual health data.")
     st.write("- **Preventive Measures**: Receive suggestions for preventive measures to maintain good health.")
 
-
     # Display project images
     st.image("Intro Image.jpg", caption='Health Guard', width=600)
+
 
 if __name__ == "__main__":
     main()

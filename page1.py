@@ -4,20 +4,24 @@ import pickle as pkl
 
 
 def main():
-    st.title("WELCOME TO HEALTH GAURD: ML based Disease Prediction system !! ")
 
-    st.write("Health Guard is a machine learning-based system designed for multiple disease prediction and recommendation.")
+    st.title("Multiple Disease Prediction and Personalized Recommendation System using Machine Learning")
+    st.write("Welcome to our project, where we have developed a system that predicts multiple diseases based on various symptoms and provides personalized recommendations for treatment and prevention.")
+    st.write("Our system utilizes machine learning algorithms to analyze symptoms provided by users and predict possible diseases. Additionally, it offers personalized recommendations for treatment and preventive measures based on individual health data.")
 
-    st.write("With Health Guard, you can:")
-    st.write("- Predict the likelihood of various diseases based on input symptoms.")
-    st.write("- Receive personalized recommendations for maintaining or improving your health.")
+    st.write("## How it works")
+    st.write("1. **Symptom Input**: Users input their symptoms into the system.")
+    st.write("2. **Machine Learning Prediction**: The system employs machine learning models to predict potential diseases based on the symptoms provided.")
+    st.write("3. **Personalized Recommendations**: Based on the predicted diseases and user health data, personalized recommendations for treatment and prevention are provided.")
 
-    st.write("Health Guard utilizes advanced machine learning algorithms to analyze symptoms and provide accurate predictions.")
+    st.write("## Why Use Our System?")
+    st.write("- **Efficiency**: Quickly identify potential diseases based on symptoms.")
+    st.write("- **Personalization**: Get personalized recommendations tailored to individual health data.")
+    st.write("- **Preventive Measures**: Receive suggestions for preventive measures to maintain good health.")
 
-    st.write("Get started by uploading your symptoms or exploring the features!")
 
-    # Display the image with reduced size
-    st.image("Intro Image.jpg", caption='Health Guard Logo', width=600)
+    # Display project images
+    st.image("Intro Image.jpg", caption='Health Guard', width=600)
 
 if __name__ == "__main__":
     main()

@@ -31,7 +31,7 @@ def main():
     device_location = get_device_location()
 
     # Read the CSV data into a Pandas DataFrame
-    df = pd.read_csv("D:\Rohan Vikramaditya\Project Material BE\Data files\hospital_directory.csv")
+    df = pd.read_csv(r"C:\Users\Admin\B.E MAJOR PROJECT\Project-Material-BE\Data files\hospital_directory.csv")
 
     # Check if the DataFrame contains a column with comma-separated 'latitude,longitude'
     # Split the 'coordinates' column into separate 'latitude' and 'longitude' columns
@@ -315,36 +315,10 @@ def main():
 
     if st.button("Test Results"):
         inputFeatures = [
-            itching,
-            skin_rash,
-            continuous_sneezing,
-            shivering,
-            joint_pain,
-            stomach_pain,
-            acidity,
-            vomiting,
-            fatigue,
-            weight_gain,
-            anxiety,
-            mood_swings,
-            weight_loss,
-            restlessness,
-            irregular_sugar_level,
-            cough,
-            high_fever,
-            breathlessness,
-            sweating,
-            dehydration,
-            indigestion,
-            headache,
-            nausea,
-            loss_of_appetite,
-            back_pain,
-            constipation,
-            abdominal_pain,
-            diarrhoea,
-            mild_fever,
-            yellow_urine,
+            itching,skin_rash,continuous_sneezing,shivering,joint_pain,stomach_pain,acidity,vomiting,fatigue,
+            weight_gain,anxiety,mood_swings,weight_loss,restlessness,irregular_sugar_level,cough,high_fever,
+            breathlessness,sweating,dehydration,indigestion,headache,nausea,loss_of_appetite,back_pain,
+            constipation,abdominal_pain,diarrhoea,mild_fever,yellow_urine,
         ]
 
         input_data_as_numpy_array = np.asarray(inputFeatures)

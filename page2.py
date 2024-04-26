@@ -482,6 +482,10 @@ def main():
         with col2:
             chest_pain = st.selectbox("Does the person have chest pain?",
                                   options_yes_no, format_func=lambda x: display_yes_no[x], key=15)
+            
+        with col3:
+           age = st.number_input('Age', step=1)
+
 
     # code for prediction
         lung_diagnosis = ' '
@@ -490,7 +494,7 @@ def main():
 
         if st.button('Lung Cancer Test Result'):
             inputFeatures = [gender, smoking, yellow_fingers, anxiety, peer_pressure, chr_disease, fatigue, allergy, wheezing,
-                         alcohol_consumption, coughing, shortness_of_breath, swallowing_difficulty, chest_pain]
+                         alcohol_consumption, coughing, shortness_of_breath, swallowing_difficulty, chest_pain,age]
             lung_prediction = lung_model.predict([inputFeatures])
 
             if (lung_prediction[0] == 1):
